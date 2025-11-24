@@ -1,6 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
+import ReduxProvider from "@/components/redux/ReduxProvider";
+import VerifyUser from "@/components/verifyuser/VerifyUser";
+
 
 
 const poppins = Poppins({
@@ -22,8 +25,14 @@ export default function RootLayout({ children }) {
       <body
         className={poppins.className}
       >
-       
-        {children}
+        <ReduxProvider>
+       <VerifyUser>
+          {children}
+
+       </VerifyUser>
+        </ReduxProvider>
+        
+
       </body>
     </html>
   );
