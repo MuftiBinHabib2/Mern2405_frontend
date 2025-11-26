@@ -13,9 +13,9 @@ const VerifyUser = ({children}) => {
         axios.get(`${process.env.SERVER_URL}/auth/verifyuser`,{
           headers: {"token" : token}
         }).then((res)=>{
-          dispatch(userInfo(res.data.data))
-        }).catch((err)=>{
-          console.log(err)
+          console.log(res )
+        
+          localStorage.setItem("token",JSON.stringify(res.data.token))
         })
     },[])
   return (
